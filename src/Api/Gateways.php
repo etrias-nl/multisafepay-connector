@@ -35,7 +35,7 @@ class Gateways
     /**
      * @param string|null $country ISO-3166-1
      * @param string|null $currency ISO-4217
-     * @param float|null $amount in cents
+     * @param float|null $amount (not in cents)
      * @param string|null $include
      * @return mixed
      * @throws \Http\Client\Exception
@@ -48,7 +48,7 @@ class Gateways
         $uri = $uri->withQuery(http_build_query([
             'country' => $country,
             'currency' => $currency,
-            'amount' => $amount,
+            'amount' => $amount ? $amount * 100 : null,
             'include' => $include
         ]));
 
