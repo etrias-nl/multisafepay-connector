@@ -45,11 +45,6 @@ abstract class AbstractApiTest extends TestCase
             ->addDefaultDeserializationVisitors()
             ->addDefaultSerializationVisitors()
             ->addDefaultHandlers()
-//            ->configureHandlers(function (HandlerRegistry $registry) {
-//                $registry->registerSubscribingHandler(new DateHandler());
-//            })
-//            ->setSerializationVisitor('array', new ArraySerializationVisitor(new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy()), new DefaultAccessorStrategy()))
-//            ->setDeserializationVisitor('array', new ArrayDeserializationVisitor(new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy()), new DefaultAccessorStrategy()))
             ->build();
     }
 }

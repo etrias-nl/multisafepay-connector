@@ -8,7 +8,10 @@ namespace Tests\Etrias\MultiSafePayConnector\Functional\Api;
 
 
 use Etrias\MultiSafePayConnector\Api\Gateways;
+use Etrias\MultiSafePayConnector\Exception\MultiSafePayException;
 use Etrias\MultiSafePayConnector\Response\AllGatewaysResponse;
+use Etrias\MultiSafePayConnector\Response\GetGatewayResponse;
+use Etrias\MultiSafePayConnector\Response\GetIssuersResponse;
 
 class GatewaysTest extends AbstractApiTest
 {
@@ -27,5 +30,30 @@ class GatewaysTest extends AbstractApiTest
         $response = $this->gateWayApi->getAll();
 
         $this->assertInstanceOf(AllGatewaysResponse::class, $response);
+    }
+
+    public function testGetGateway()
+    {
+        $response = $this->gateWayApi->get('VISA');
+        $this->assertInstanceOf(GetGatewayResponse::class, $response);
+    }
+
+    public function testNotExistingGateway()
+    {
+        $this->expectException(MultiSafePayException::class);
+        $this->gateWayApi->get('I_DO_NOT_EXIST');
+    }
+
+    public function testGetIssuers()
+    {
+        $response = $this->gateWayApi->getIssuers();
+
+        $this->assertInstanceOf(GetIssuersResponse::class, $response);
+    }
+
+    public function testGetIssuersForInvalidGateway()
+    {
+        $this->expectException(MultiSafePayException::class);
+        $this->gateWayApi->getIssuers('VISA');
     }
 }

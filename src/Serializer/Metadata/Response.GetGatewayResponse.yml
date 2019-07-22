@@ -1,0 +1,4 @@
+Etrias\MultiSafePayConnector\Response\GetGatewayResponse:
+  properties:
+    data:
+      type: Etrias\MultiSafePayConnector\Type\Gateway

@@ -1,0 +1,4 @@
+Etrias\MultiSafePayConnector\Response\GetIssuersResponse:
+  properties:
+    data:
+      type: array<Etrias\MultiSafePayConnector\Type\Issuer>

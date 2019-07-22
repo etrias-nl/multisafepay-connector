@@ -1,0 +1,6 @@
+Etrias\MultiSafePayConnector\Type\Issuer:
+  properties:
+    code:
+      type: string
+    description:
+      type: string
