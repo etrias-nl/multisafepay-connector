@@ -1,0 +1,33 @@
+{
+    "name": "etrias/multisafepay-connector",
+    "description": "Connector to MultiSafePay connector",
+    "require": {
+        "php": ">=7.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Etrias\\MultiSafePayConnector\\": "./src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Etrias\\MultiSafePayConnector\\": "./tests/"
+        }
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.4",
+        "phpunit/phpunit": "~8.2"
+    },
+    "scripts": {
+        "fix-style": [
+            "vendor/bin/php-cs-fixer fix --diff --show-progress run-in"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Christ-Jan",
+            "email": "christ-jan@etrias.nl"
+        }
+    ],
+    "minimum-stability": "stable"
+}
