@@ -8,6 +8,7 @@ namespace Tests\Etrias\MultiSafePayConnector\Functional\Api;
 
 
 use Etrias\MultiSafePayConnector\Api\Gateways;
+use Etrias\MultiSafePayConnector\Response\AllGatewaysResponse;
 
 class GatewaysTest extends AbstractApiTest
 {
@@ -17,7 +18,7 @@ class GatewaysTest extends AbstractApiTest
     protected function setUp(): void
     {
         parent::setUp();
-        $this->gateWayApi = new Gateways($this->client);
+        $this->gateWayApi = new Gateways($this->client, $this->serializer);
     }
 
 
@@ -25,6 +26,6 @@ class GatewaysTest extends AbstractApiTest
     {
         $response = $this->gateWayApi->getAll();
 
-        return $response->getBody()->getContents();
+        $this->assertInstanceOf(AllGatewaysResponse::class, $response);
     }
 }

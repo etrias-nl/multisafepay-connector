@@ -1,0 +1,6 @@
+Etrias\MultiSafePayConnector\Type\Gateway:
+  properties:
+    id:
+      type: string
+    description:
+      type: string

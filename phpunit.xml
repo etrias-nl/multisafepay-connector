@@ -7,15 +7,17 @@
             convertNoticesToExceptions="true"
             convertWarningsToExceptions="true"
             forceCoversAnnotation="false"
-            mapTestClassNameToCoveredClassName="false"
             processIsolation="false"
             stopOnError="false"
             stopOnFailure="false"
             stopOnIncomplete="false"
             stopOnSkipped="false"
-            strict="false"
             verbose="false"
     >
+    <php>
+        <env name="ENDPOINT" value="https://testapi.multisafepay.com/v1/json"/>
+        <env name="API_KEY" value="c8201ce5f40104e754219d448a44d43f36041ef1"/>
+    </php>
 
     <testsuites>
         <testsuite name="Functional">
@@ -26,7 +28,6 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">src</directory>
-            <exclude></exclude>
         </whitelist>
 
     </filter>
