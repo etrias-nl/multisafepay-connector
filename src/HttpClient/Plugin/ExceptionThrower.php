@@ -29,12 +29,11 @@ class ExceptionThrower implements Plugin
     public function handleRequest(RequestInterface $request, callable $next, callable $first): Promise
     {
         return $next($request)->then(function (ResponseInterface $response) {
-            if ($response->getStatusCode() >= 400 && $response->getStatusCode() < 500) {
+            if ($response->getStatusCode() < 500) {
                 $content = ResponseMediator::getContent($response);
                 if (is_array($content) && isset($content['success']) && $content['success'] === false) {
                     $message = $content['error_info'] ?? '';
                     $code = $content['error_code'] ?? 0;
-
                     throw new MultiSafePayException($message, $code);
                 }
             }

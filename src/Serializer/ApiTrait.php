@@ -32,7 +32,7 @@ trait ApiTrait
      */
     protected function deserializeResponse(ResponseInterface $response, $className, DeserializationContext $context = null)
     {
-        $content = $response->getBody()->getContents();
+        $content = $response->getBody()->__toString();
 
         return $this->serializer->deserialize(
             $content,

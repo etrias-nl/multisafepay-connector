@@ -35,12 +35,12 @@ class Gateways
     /**
      * @param string|null $country ISO-3166-1
      * @param string|null $currency ISO-4217
-     * @param float|null $amount in cents
+     * @param int|null $amount in cents
      * @param string|null $include
      * @return mixed
      * @throws \Http\Client\Exception
      */
-    public function getAll(string $country = null, string $currency = null, float $amount = null, string $include = null)
+    public function getAll(string $country = null, string $currency = null, int $amount = null, string $include = null)
     {
 
         $uri = new Uri('/gateways');

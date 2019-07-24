@@ -1,0 +1,4 @@
+Etrias\MultiSafePayConnector\Response\CreateRedirectOrderResponse:
+  properties:
+    data:
+      type: Etrias\MultiSafePayConnector\Type\RedirectOrderCreated

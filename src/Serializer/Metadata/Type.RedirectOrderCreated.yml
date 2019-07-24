@@ -1,0 +1,6 @@
+Etrias\MultiSafePayConnector\Type\RedirectOrderCreated:
+  properties:
+    orderId:
+      type: string
+    paymentUrl:
+      type: string
