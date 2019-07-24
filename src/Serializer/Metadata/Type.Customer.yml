@@ -1,0 +1,28 @@
+Etrias\MultiSafePayConnector\Type\Customer:
+  properties:
+    locale:
+      type: string
+    ipAddress:
+      type: string
+    firstName:
+      type: string
+    lastName:
+      type: string
+    address1:
+      type: string
+    houseNumber:
+      type: string
+    zipCode:
+      type: string
+    city:
+      type: string
+    country:
+      type: string
+    phone:
+      type: string
+    email:
+      type: string
+    referrer:
+      type: string
+    userAgent:
+      type: string

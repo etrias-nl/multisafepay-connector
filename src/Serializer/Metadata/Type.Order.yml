@@ -1,0 +1,48 @@
+Etrias\MultiSafePayConnector\Type\Order:
+  properties:
+    transactionId:
+      type: string
+    orderId:
+      type: string
+    created:
+      type: DateTime<'Y-m-d\TH:i:s'>
+    currency:
+      type: string
+    amount:
+      type: int
+    description:
+      type: string
+    var1:
+      type: string
+    var2:
+      type: string
+    var3:
+      type: string
+    items:
+      type: Array<ShoppingCartItem>
+    amountRefunded:
+      type: int
+    status:
+      type: string
+    financialStatus:
+      type: string
+    reason:
+      type: string
+    reasonCode:
+      type: string
+    modified:
+      type: DateTime<'Y-m-d\TH:i:s'>
+    customer:
+      type: Etrias\MultiSafePayConnector\Type\Customer
+    customInfo:
+      type: array<string>
+    paymentDetails:
+      type: Etrias\MultiSafePayConnector\Type\PaymentDetails
+    costs:
+      type: array<Etrias\MultiSafePayConnector\Type\Cost>
+    relatedTransactions:
+      type: array
+    paymentMethods:
+      type: array<Etrias\MultiSafePayConnector\Type\PaymentMethod>
+
+

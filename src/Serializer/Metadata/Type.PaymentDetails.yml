@@ -1,0 +1,18 @@
+Etrias\MultiSafePayConnector\Type\PaymentDetails:
+  properties:
+    recurringId:
+      type: int
+    type:
+      type: string
+    accountId:
+      type: int
+    accountHolderName:
+      type: string
+    externalTransactionId:
+      type: int
+    accountIban:
+      type: string
+    accountBic:
+      type: string
+    issuerId:
+      type: int

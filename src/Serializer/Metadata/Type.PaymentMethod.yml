@@ -1,0 +1,24 @@
+Etrias\MultiSafePayConnector\Type\PaymentMethod:
+  properties:
+    accountBic:
+      type: string
+    accountHolderName:
+      type: string
+    accountIban:
+      type: string
+    accountId:
+      type: int
+    amount:
+      type: int
+    currency:
+      type: string
+    description:
+      type: string
+    externalTransactionId:
+      type: string
+    paymentDescription:
+      type: string
+    status:
+      type: string
+    type:
+      type: string

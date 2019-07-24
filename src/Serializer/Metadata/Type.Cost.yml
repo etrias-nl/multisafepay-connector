@@ -1,0 +1,10 @@
+Etrias\MultiSafePayConnector\Type\Cost:
+  properties:
+    transactionId:
+      type: string
+    description:
+      type: string
+    type:
+      type: string
+    amount:
+      type: float

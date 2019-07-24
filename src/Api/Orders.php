@@ -10,6 +10,7 @@ use Etrias\MultiSafePayConnector\Response\AllGatewaysResponse;
 use Etrias\MultiSafePayConnector\Response\CreateDirectOrderResponse;
 use Etrias\MultiSafePayConnector\Response\CreatePaymentLinkOrderResponse;
 use Etrias\MultiSafePayConnector\Response\CreateRedirectOrderResponse;
+use Etrias\MultiSafePayConnector\Response\GetOrderResponse;
 use Etrias\MultiSafePayConnector\Serializer\ApiTrait;
 use Etrias\MultiSafePayConnector\Type\CheckoutOptions;
 use Etrias\MultiSafePayConnector\Type\Customer;
@@ -43,6 +44,15 @@ class Orders
 
         $this->client = $client;
         $this->serializer = $serializer;
+    }
+
+    public function getOrder(string $orderId)
+    {
+        $uri = sprintf('/orders/%s', $orderId);
+
+        $response = $this->client->get($uri);
+
+        return $this->deserializeResponse($response, GetOrderResponse::class);
     }
 
     /**

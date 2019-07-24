@@ -11,6 +11,7 @@ use Etrias\MultiSafePayConnector\Api\Orders;
 use Etrias\MultiSafePayConnector\Response\CreateDirectOrderResponse;
 use Etrias\MultiSafePayConnector\Response\CreatePaymentLinkOrderResponse;
 use Etrias\MultiSafePayConnector\Response\CreateRedirectOrderResponse;
+use Etrias\MultiSafePayConnector\Response\GetOrderResponse;
 use Etrias\MultiSafePayConnector\Type\CheckoutOptions;
 use Etrias\MultiSafePayConnector\Type\Customer;
 use Etrias\MultiSafePayConnector\Type\GatewayInfo;
@@ -109,7 +110,7 @@ class OrdersTest extends AbstractApiTest
 
         $checkoutOptions  = new CheckoutOptions();
         $checkoutOptions->setTaxTables($taxTables);
-        
+
         $this->expectExceptionCode(1000);
 
         $response = $this->ordersApi->createDirectOrder(
@@ -127,5 +128,12 @@ class OrdersTest extends AbstractApiTest
         );
 
         $this->assertInstanceOf(CreateDirectOrderResponse::class, $response);
+    }
+
+    public function testGetOrder()
+    {
+        $response = $this->ordersApi->getOrder('TEST-ORDER-9516', 'EUR');
+
+        $this->assertInstanceOf(GetOrderResponse::class, $response);
     }
 }
