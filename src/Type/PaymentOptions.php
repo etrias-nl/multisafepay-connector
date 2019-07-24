@@ -1,12 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Etrias\MultiSafePayConnector\Type;
 
-
 class PaymentOptions
 {
-
     /**
      * @var string
      */
@@ -31,8 +38,7 @@ class PaymentOptions
         string $notificationUrl,
         string $redirectUrl,
         string $cancelUrl
-    )
-    {
+    ) {
         $this->notificationUrl = $notificationUrl;
         $this->redirectUrl = $redirectUrl;
         $this->cancelUrl = $cancelUrl;
@@ -48,11 +54,13 @@ class PaymentOptions
 
     /**
      * @param string $notificationUrl
+     *
      * @return PaymentOptions
      */
-    public function setNotificationUrl(string $notificationUrl): PaymentOptions
+    public function setNotificationUrl(string $notificationUrl): self
     {
         $this->notificationUrl = $notificationUrl;
+
         return $this;
     }
 
@@ -66,11 +74,13 @@ class PaymentOptions
 
     /**
      * @param string $notificationMethod
+     *
      * @return PaymentOptions
      */
-    public function setNotificationMethod(string $notificationMethod): PaymentOptions
+    public function setNotificationMethod(string $notificationMethod): self
     {
         $this->notificationMethod = $notificationMethod;
+
         return $this;
     }
 
@@ -84,11 +94,13 @@ class PaymentOptions
 
     /**
      * @param string $redirectUrl
+     *
      * @return PaymentOptions
      */
-    public function setRedirectUrl(string $redirectUrl): PaymentOptions
+    public function setRedirectUrl(string $redirectUrl): self
     {
         $this->redirectUrl = $redirectUrl;
+
         return $this;
     }
 
@@ -102,11 +114,13 @@ class PaymentOptions
 
     /**
      * @param string $cancelUrl
+     *
      * @return PaymentOptions
      */
-    public function setCancelUrl(string $cancelUrl): PaymentOptions
+    public function setCancelUrl(string $cancelUrl): self
     {
         $this->cancelUrl = $cancelUrl;
+
         return $this;
     }
 
@@ -120,13 +134,13 @@ class PaymentOptions
 
     /**
      * @param string $closeWindow
+     *
      * @return PaymentOptions
      */
-    public function setCloseWindow(string $closeWindow): PaymentOptions
+    public function setCloseWindow(string $closeWindow): self
     {
         $this->closeWindow = $closeWindow;
+
         return $this;
     }
-
-
 }

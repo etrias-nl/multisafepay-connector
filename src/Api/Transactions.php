@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Etrias\MultiSafePayConnector\Api;
 
-
 use Etrias\MultiSafePayConnector\Response\CreateRedirectOrderResponse;
 use Etrias\MultiSafePayConnector\Serializer\ApiTrait;
-use Etrias\MultiSafePayConnector\Type\CheckoutOptions;
-use Etrias\MultiSafePayConnector\Type\Customer;
-use Etrias\MultiSafePayConnector\Type\Delivery;
-use Etrias\MultiSafePayConnector\Type\PaymentOptions;
-use Etrias\MultiSafePayConnector\Type\SecondChance;
-use Etrias\MultiSafePayConnector\Type\ShoppingCart;
-use Etrias\MultiSafePayConnector\Type\TaxTables;
-use GuzzleHttp\Psr7\Uri;
 use Http\Client\Common\HttpMethodsClientInterface;
 use JMS\Serializer\SerializerInterface;
 use Psr\Http\Client\ClientInterface;
@@ -31,12 +31,12 @@ class Transactions
 
     /**
      * Transactions constructor.
-     * @param ClientInterface $client
+     *
+     * @param ClientInterface     $client
      * @param SerializerInterface $serializer
      */
     public function __construct(ClientInterface $client, SerializerInterface $serializer)
     {
-
         $this->client = $client;
         $this->serializer = $serializer;
     }
@@ -44,14 +44,15 @@ class Transactions
     /**
      * @param string $orderId
      * @param string $currency
-     * @param int $amount
+     * @param int    $amount
      * @param string $description
-     * @return CreateRedirectOrderResponse
+     *
      * @throws \Http\Client\Exception
+     *
+     * @return CreateRedirectOrderResponse
      */
-    public function refund(string $orderId, string $currency, int $amount, $description ='')
+    public function refund(string $orderId, string $currency, int $amount, $description = '')
     {
-
         $body = [
             'currency' => $currency,
             'amount' => $amount,
@@ -66,5 +67,4 @@ class Transactions
 
         return $this->deserializeResponse($response, CreateRedirectOrderResponse::class);
     }
-
 }

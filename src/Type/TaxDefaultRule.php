@@ -1,8 +1,16 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Etrias\MultiSafePayConnector\Type;
-
 
 class TaxDefaultRule
 {
@@ -14,7 +22,6 @@ class TaxDefaultRule
 
     public function __construct(float $rate, bool $shippingTaxed = false)
     {
-
         $this->rate = $rate;
         $this->shippingTaxed = $shippingTaxed;
     }
@@ -29,11 +36,13 @@ class TaxDefaultRule
 
     /**
      * @param bool $shippingTaxed
+     *
      * @return TaxDefaultRule
      */
-    public function setShippingTaxed(bool $shippingTaxed): TaxDefaultRule
+    public function setShippingTaxed(bool $shippingTaxed): self
     {
         $this->shippingTaxed = $shippingTaxed;
+
         return $this;
     }
 
@@ -47,13 +56,13 @@ class TaxDefaultRule
 
     /**
      * @param float $rate
+     *
      * @return TaxDefaultRule
      */
-    public function setRate(float $rate): TaxDefaultRule
+    public function setRate(float $rate): self
     {
         $this->rate = $rate;
+
         return $this;
     }
-
-
 }

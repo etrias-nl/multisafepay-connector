@@ -1,8 +1,16 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Etrias\MultiSafePayConnector\Type;
-
 
 class Cost
 {
@@ -28,11 +36,13 @@ class Cost
 
     /**
      * @param string $transactionId
+     *
      * @return Cost
      */
-    public function setTransactionId(string $transactionId): Cost
+    public function setTransactionId(string $transactionId): self
     {
         $this->transactionId = $transactionId;
+
         return $this;
     }
 
@@ -46,11 +56,13 @@ class Cost
 
     /**
      * @param string $description
+     *
      * @return Cost
      */
-    public function setDescription(string $description): Cost
+    public function setDescription(string $description): self
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -64,11 +76,13 @@ class Cost
 
     /**
      * @param string $type
+     *
      * @return Cost
      */
-    public function setType(string $type): Cost
+    public function setType(string $type): self
     {
         $this->type = $type;
+
         return $this;
     }
 
@@ -82,11 +96,13 @@ class Cost
 
     /**
      * @param float $amount
+     *
      * @return Cost
      */
-    public function setAmount(float $amount): Cost
+    public function setAmount(float $amount): self
     {
         $this->amount = $amount;
+
         return $this;
     }
 }

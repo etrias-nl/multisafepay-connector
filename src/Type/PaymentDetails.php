@@ -1,8 +1,16 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Etrias\MultiSafePayConnector\Type;
-
 
 class PaymentDetails
 {
@@ -40,11 +48,13 @@ class PaymentDetails
 
     /**
      * @param int|null $recurringId
+     *
      * @return PaymentDetails
      */
-    public function setRecurringId(?int $recurringId): PaymentDetails
+    public function setRecurringId(?int $recurringId): self
     {
         $this->recurringId = $recurringId;
+
         return $this;
     }
 
@@ -58,11 +68,13 @@ class PaymentDetails
 
     /**
      * @param string $type
+     *
      * @return PaymentDetails
      */
-    public function setType(string $type): PaymentDetails
+    public function setType(string $type): self
     {
         $this->type = $type;
+
         return $this;
     }
 
@@ -76,11 +88,13 @@ class PaymentDetails
 
     /**
      * @param int $accountId
+     *
      * @return PaymentDetails
      */
-    public function setAccountId(int $accountId): PaymentDetails
+    public function setAccountId(int $accountId): self
     {
         $this->accountId = $accountId;
+
         return $this;
     }
 
@@ -94,11 +108,13 @@ class PaymentDetails
 
     /**
      * @param string $accountHolderName
+     *
      * @return PaymentDetails
      */
-    public function setAccountHolderName(string $accountHolderName): PaymentDetails
+    public function setAccountHolderName(string $accountHolderName): self
     {
         $this->accountHolderName = $accountHolderName;
+
         return $this;
     }
 
@@ -112,11 +128,13 @@ class PaymentDetails
 
     /**
      * @param int $externalTransactionId
+     *
      * @return PaymentDetails
      */
-    public function setExternalTransactionId(int $externalTransactionId): PaymentDetails
+    public function setExternalTransactionId(int $externalTransactionId): self
     {
         $this->externalTransactionId = $externalTransactionId;
+
         return $this;
     }
 
@@ -130,11 +148,13 @@ class PaymentDetails
 
     /**
      * @param string $accountIban
+     *
      * @return PaymentDetails
      */
-    public function setAccountIban(string $accountIban): PaymentDetails
+    public function setAccountIban(string $accountIban): self
     {
         $this->accountIban = $accountIban;
+
         return $this;
     }
 
@@ -148,11 +168,13 @@ class PaymentDetails
 
     /**
      * @param mixed $accountBic
+     *
      * @return PaymentDetails
      */
     public function setAccountBic($accountBic)
     {
         $this->accountBic = $accountBic;
+
         return $this;
     }
 
@@ -166,11 +188,13 @@ class PaymentDetails
 
     /**
      * @param int|null $issuerId
+     *
      * @return PaymentDetails
      */
-    public function setIssuerId(?int $issuerId): PaymentDetails
+    public function setIssuerId(?int $issuerId): self
     {
         $this->issuerId = $issuerId;
+
         return $this;
     }
 }

@@ -2,9 +2,18 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\MultiSafePayConnector\Api;
 
-use Etrias\EwarehousingConnector\Response\InboundResponse;
 use Etrias\MultiSafePayConnector\Response\AllGatewaysResponse;
 use Etrias\MultiSafePayConnector\Response\GetGatewayResponse;
 use Etrias\MultiSafePayConnector\Response\GetIssuersResponse;
@@ -12,7 +21,6 @@ use Etrias\MultiSafePayConnector\Serializer\ApiTrait;
 use Etrias\MultiSafePayConnector\Type\Gateway;
 use GuzzleHttp\Psr7\Uri;
 use Http\Client\Common\HttpMethodsClientInterface;
-use Http\Message\UriFactory\SlimUriFactory;
 use JMS\Serializer\SerializerInterface;
 use Psr\Http\Client\ClientInterface;
 
@@ -27,34 +35,35 @@ class Gateways
 
     /**
      * Gateways constructor.
-     * @param ClientInterface $client
+     *
+     * @param ClientInterface     $client
      * @param SerializerInterface $serializer
      */
     public function __construct(ClientInterface $client, SerializerInterface $serializer)
     {
-
         $this->client = $client;
         $this->serializer = $serializer;
     }
 
     /**
-     * @param string|null $country ISO-3166-1
+     * @param string|null $country  ISO-3166-1
      * @param string|null $currency ISO-4217
-     * @param int|null $amount in cents
+     * @param int|null    $amount   in cents
      * @param string|null $include
-     * @return AllGatewaysResponse
+     *
      * @throws \Http\Client\Exception
+     *
+     * @return AllGatewaysResponse
      */
     public function getAll(string $country = null, string $currency = null, int $amount = null, string $include = null)
     {
-
         $uri = new Uri('/gateways');
 
         $uri = $uri->withQuery(http_build_query([
             'country' => $country,
             'currency' => $currency,
             'amount' => $amount,
-            'include' => $include
+            'include' => $include,
         ]));
 
         $response = $this->client->get($uri);
@@ -64,8 +73,10 @@ class Gateways
 
     /**
      * @param string $id Gateway id
-     * @return GetGatewayResponse
+     *
      * @throws \Http\Client\Exception
+     *
+     * @return GetGatewayResponse
      */
     public function get(string $id)
     {
@@ -76,8 +87,10 @@ class Gateways
 
     /**
      * @param string $id
-     * @return GetIssuersResponse
+     *
      * @throws \Http\Client\Exception
+     *
+     * @return GetIssuersResponse
      */
     public function getIssuers(string $id = 'ideal')
     {

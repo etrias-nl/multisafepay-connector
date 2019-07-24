@@ -2,8 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Etrias\MultiSafePayConnector\HttpClient;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\MultiSafePayConnector\HttpClient;
 
 use Http\Client\Common\HttpMethodsClient;
 use Http\Client\Common\Plugin;
@@ -12,7 +21,6 @@ use Http\Client\HttpClient;
 use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\MessageFactoryDiscovery;
 use Http\Discovery\Psr17FactoryDiscovery;
-use Http\Message\MessageFactory;
 use Http\Message\RequestFactory;
 use Psr\Http\Client\ClientInterface;
 
@@ -37,13 +45,13 @@ class Builder
      */
     protected $requestFactory;
 
-
     /**
      * @var Plugin[]
      */
     private $plugins = [];
+
     /**
-     * @param HttpClient     $httpClient
+     * @param HttpClient            $httpClient
      * @param Psr17FactoryDiscovery $requestFactory
      */
     public function __construct(
@@ -63,6 +71,7 @@ class Builder
     {
         $this->plugins[] = $plugin;
     }
+
     /**
      * Remove a plugin by its fully qualified class name (FQCN).
      *

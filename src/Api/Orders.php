@@ -2,9 +2,17 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Etrias\MultiSafePayConnector\Api;
-
 
 use Etrias\MultiSafePayConnector\Response\CreateDirectOrderResponse;
 use Etrias\MultiSafePayConnector\Response\CreatePaymentLinkOrderResponse;
@@ -30,7 +38,6 @@ class Orders
     const TYPE_CHECKOUT = 'checkout';
     const TYPE_PAYMENT_LINK = 'paymentlink';
 
-
     /**
      * @var HttpMethodsClientInterface
      */
@@ -38,20 +45,22 @@ class Orders
 
     /**
      * Orders constructor.
-     * @param ClientInterface $client
+     *
+     * @param ClientInterface     $client
      * @param SerializerInterface $serializer
      */
     public function __construct(ClientInterface $client, SerializerInterface $serializer)
     {
-
         $this->client = $client;
         $this->serializer = $serializer;
     }
 
     /**
      * @param string $orderId
-     * @return GetOrderResponse
+     *
      * @throws \Http\Client\Exception
+     *
+     * @return GetOrderResponse
      */
     public function getOrder(string $orderId)
     {
@@ -63,18 +72,20 @@ class Orders
     }
 
     /**
-     * @param string $orderId
-     * @param string $description
-     * @param string $currency
-     * @param int $amount
-     * @param PaymentOptions $paymentOptions
-     * @param Customer $customer
-     * @param string|null $gateway
+     * @param string            $orderId
+     * @param string            $description
+     * @param string            $currency
+     * @param int               $amount
+     * @param PaymentOptions    $paymentOptions
+     * @param Customer          $customer
+     * @param string|null       $gateway
      * @param SecondChance|null $secondChance
-     * @param Delivery|null $delivery
+     * @param Delivery|null     $delivery
      * @param ShoppingCart|null $shoppingCart
-     * @return mixed
+     *
      * @throws \Http\Client\Exception
+     *
+     * @return mixed
      */
     public function createRedirectOrder(
         string $orderId,
@@ -88,8 +99,7 @@ class Orders
         Delivery $delivery = null,
         ShoppingCart $shoppingCart = null,
         CheckoutOptions $checkoutOptions = null
-    )
-    {
+    ) {
         $body = [
             'type' => self::TYPE_REDIRECT,
             'order_id' => $orderId,
@@ -105,25 +115,27 @@ class Orders
             'checkout_options' => $checkoutOptions,
         ];
 
-        $response = $this->client->post('/orders',[], $this->serializer->serialize($body, 'json'));
+        $response = $this->client->post('/orders', [], $this->serializer->serialize($body, 'json'));
 
         return $this->deserializeResponse($response, CreateRedirectOrderResponse::class);
     }
 
     /**
-     * @param string $gateway
-     * @param string $orderId
-     * @param string $description
-     * @param string $currency
-     * @param int $amount
-     * @param PaymentOptions $paymentOptions
-     * @param Customer|null $customer
-     * @param array $gatewayInfo
-     * @param Delivery|null $delivery
-     * @param ShoppingCart|null $shoppingCart
+     * @param string               $gateway
+     * @param string               $orderId
+     * @param string               $description
+     * @param string               $currency
+     * @param int                  $amount
+     * @param PaymentOptions       $paymentOptions
+     * @param Customer|null        $customer
+     * @param array                $gatewayInfo
+     * @param Delivery|null        $delivery
+     * @param ShoppingCart|null    $shoppingCart
      * @param CheckoutOptions|null $checkoutOptions
-     * @return mixed
+     *
      * @throws \Http\Client\Exception
+     *
+     * @return mixed
      */
     public function createDirectOrder(
         string $gateway,
@@ -137,8 +149,7 @@ class Orders
         Delivery $delivery = null,
         ShoppingCart $shoppingCart = null,
         CheckoutOptions $checkoutOptions = null
-    )
-    {
+    ) {
         $body = [
             'type' => self::TYPE_DIRECT,
             'order_id' => $orderId,
@@ -154,26 +165,28 @@ class Orders
             'checkout_options' => $checkoutOptions,
         ];
 
-        echo ($this->serializer->serialize($body, 'json'));
-        $response = $this->client->post('/orders',[], $this->serializer->serialize($body, 'json'));
+        echo $this->serializer->serialize($body, 'json');
+        $response = $this->client->post('/orders', [], $this->serializer->serialize($body, 'json'));
 
         return $this->deserializeResponse($response, CreateDirectOrderResponse::class);
     }
 
     /**
-     * @param string $gateway
-     * @param string $orderId
-     * @param string $description
-     * @param string $currency
-     * @param int $amount
-     * @param PaymentOptions $paymentOptions
-     * @param Customer|null $customer
-     * @param array $gatewayInfo
-     * @param Delivery|null $delivery
-     * @param ShoppingCart|null $shoppingCart
+     * @param string               $gateway
+     * @param string               $orderId
+     * @param string               $description
+     * @param string               $currency
+     * @param int                  $amount
+     * @param PaymentOptions       $paymentOptions
+     * @param Customer|null        $customer
+     * @param array                $gatewayInfo
+     * @param Delivery|null        $delivery
+     * @param ShoppingCart|null    $shoppingCart
      * @param CheckoutOptions|null $checkoutOptions
-     * @return mixed
+     *
      * @throws \Http\Client\Exception
+     *
+     * @return mixed
      */
     public function createPaymentLinkOrder(
         string $gateway,
@@ -187,8 +200,7 @@ class Orders
         Delivery $delivery = null,
         ShoppingCart $shoppingCart = null,
         CheckoutOptions $checkoutOptions = null
-    )
-    {
+    ) {
         $body = [
             'type' => self::TYPE_PAYMENT_LINK,
             'order_id' => $orderId,
@@ -204,7 +216,7 @@ class Orders
             'checkout_options' => $checkoutOptions,
         ];
 
-        $response = $this->client->post('/orders',[], $this->serializer->serialize($body, 'json'));
+        $response = $this->client->post('/orders', [], $this->serializer->serialize($body, 'json'));
 
         return $this->deserializeResponse($response, CreatePaymentLinkOrderResponse::class);
     }

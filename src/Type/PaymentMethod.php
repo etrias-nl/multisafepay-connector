@@ -1,8 +1,16 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Etrias\MultiSafePayConnector\Type;
-
 
 class PaymentMethod
 {
@@ -49,11 +57,13 @@ class PaymentMethod
 
     /**
      * @param string $accountBic
+     *
      * @return PaymentMethod
      */
-    public function setAccountBic(string $accountBic): PaymentMethod
+    public function setAccountBic(string $accountBic): self
     {
         $this->accountBic = $accountBic;
+
         return $this;
     }
 
@@ -67,11 +77,13 @@ class PaymentMethod
 
     /**
      * @param string $accountHolderName
+     *
      * @return PaymentMethod
      */
-    public function setAccountHolderName(string $accountHolderName): PaymentMethod
+    public function setAccountHolderName(string $accountHolderName): self
     {
         $this->accountHolderName = $accountHolderName;
+
         return $this;
     }
 
@@ -85,11 +97,13 @@ class PaymentMethod
 
     /**
      * @param string $accountIban
+     *
      * @return PaymentMethod
      */
-    public function setAccountIban(string $accountIban): PaymentMethod
+    public function setAccountIban(string $accountIban): self
     {
         $this->accountIban = $accountIban;
+
         return $this;
     }
 
@@ -103,11 +117,13 @@ class PaymentMethod
 
     /**
      * @param int $accountId
+     *
      * @return PaymentMethod
      */
-    public function setAccountId(int $accountId): PaymentMethod
+    public function setAccountId(int $accountId): self
     {
         $this->accountId = $accountId;
+
         return $this;
     }
 
@@ -121,11 +137,13 @@ class PaymentMethod
 
     /**
      * @param int $amount
+     *
      * @return PaymentMethod
      */
-    public function setAmount(int $amount): PaymentMethod
+    public function setAmount(int $amount): self
     {
         $this->amount = $amount;
+
         return $this;
     }
 
@@ -139,11 +157,13 @@ class PaymentMethod
 
     /**
      * @param string $currency
+     *
      * @return PaymentMethod
      */
-    public function setCurrency(string $currency): PaymentMethod
+    public function setCurrency(string $currency): self
     {
         $this->currency = $currency;
+
         return $this;
     }
 
@@ -157,11 +177,13 @@ class PaymentMethod
 
     /**
      * @param string $description
+     *
      * @return PaymentMethod
      */
-    public function setDescription(string $description): PaymentMethod
+    public function setDescription(string $description): self
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -175,11 +197,13 @@ class PaymentMethod
 
     /**
      * @param string $externalTransactionId
+     *
      * @return PaymentMethod
      */
-    public function setExternalTransactionId(string $externalTransactionId): PaymentMethod
+    public function setExternalTransactionId(string $externalTransactionId): self
     {
         $this->externalTransactionId = $externalTransactionId;
+
         return $this;
     }
 
@@ -193,11 +217,13 @@ class PaymentMethod
 
     /**
      * @param string $paymentDescription
+     *
      * @return PaymentMethod
      */
-    public function setPaymentDescription(string $paymentDescription): PaymentMethod
+    public function setPaymentDescription(string $paymentDescription): self
     {
         $this->paymentDescription = $paymentDescription;
+
         return $this;
     }
 
@@ -211,11 +237,13 @@ class PaymentMethod
 
     /**
      * @param string $status
+     *
      * @return PaymentMethod
      */
-    public function setStatus(string $status): PaymentMethod
+    public function setStatus(string $status): self
     {
         $this->status = $status;
+
         return $this;
     }
 
@@ -229,13 +257,13 @@ class PaymentMethod
 
     /**
      * @param string $type
+     *
      * @return PaymentMethod
      */
-    public function setType(string $type): PaymentMethod
+    public function setType(string $type): self
     {
         $this->type = $type;
+
         return $this;
     }
-
-
 }

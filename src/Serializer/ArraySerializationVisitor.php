@@ -36,7 +36,7 @@ class ArraySerializationVisitor extends GenericSerializationVisitor
     public function visitArray($data, array $type, Context $context)
     {
         $result = parent::visitArray($data, $type, $context);
-        if (null !== $this->getRoot() && isset($type['params'][1]) && 0 === count($result)) {
+        if (null !== $this->getRoot() && isset($type['params'][1]) && 0 === \count($result)) {
             // ArrayObject is specially treated by the json_encode function and
             // serialized to { } while a mere array would be serialized to [].
             return new \ArrayObject();

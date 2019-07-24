@@ -1,8 +1,16 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Etrias\MultiSafePayConnector\Type;
-
 
 class Order
 {
@@ -90,11 +98,13 @@ class Order
 
     /**
      * @param string $transactionId
+     *
      * @return Order
      */
-    public function setTransactionId(string $transactionId): Order
+    public function setTransactionId(string $transactionId): self
     {
         $this->transactionId = $transactionId;
+
         return $this;
     }
 
@@ -108,11 +118,13 @@ class Order
 
     /**
      * @param string $orderId
+     *
      * @return Order
      */
-    public function setOrderId(string $orderId): Order
+    public function setOrderId(string $orderId): self
     {
         $this->orderId = $orderId;
+
         return $this;
     }
 
@@ -126,11 +138,13 @@ class Order
 
     /**
      * @param \DateTime $created
+     *
      * @return Order
      */
-    public function setCreated(\DateTime $created): Order
+    public function setCreated(\DateTime $created): self
     {
         $this->created = $created;
+
         return $this;
     }
 
@@ -144,11 +158,13 @@ class Order
 
     /**
      * @param string $currency
+     *
      * @return Order
      */
-    public function setCurrency(string $currency): Order
+    public function setCurrency(string $currency): self
     {
         $this->currency = $currency;
+
         return $this;
     }
 
@@ -162,11 +178,13 @@ class Order
 
     /**
      * @param int $amount
+     *
      * @return Order
      */
-    public function setAmount(int $amount): Order
+    public function setAmount(int $amount): self
     {
         $this->amount = $amount;
+
         return $this;
     }
 
@@ -180,11 +198,13 @@ class Order
 
     /**
      * @param string $description
+     *
      * @return Order
      */
-    public function setDescription(string $description): Order
+    public function setDescription(string $description): self
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -198,11 +218,13 @@ class Order
 
     /**
      * @param string|null $var1
+     *
      * @return Order
      */
-    public function setVar1(?string $var1): Order
+    public function setVar1(?string $var1): self
     {
         $this->var1 = $var1;
+
         return $this;
     }
 
@@ -216,11 +238,13 @@ class Order
 
     /**
      * @param string|null $var2
+     *
      * @return Order
      */
-    public function setVar2(?string $var2): Order
+    public function setVar2(?string $var2): self
     {
         $this->var2 = $var2;
+
         return $this;
     }
 
@@ -234,11 +258,13 @@ class Order
 
     /**
      * @param string|null $var3
+     *
      * @return Order
      */
-    public function setVar3(?string $var3): Order
+    public function setVar3(?string $var3): self
     {
         $this->var3 = $var3;
+
         return $this;
     }
 
@@ -252,11 +278,13 @@ class Order
 
     /**
      * @param ShoppingCartItem[] $items
+     *
      * @return Order
      */
-    public function setItems(array $items): Order
+    public function setItems(array $items): self
     {
         $this->items = $items;
+
         return $this;
     }
 
@@ -270,11 +298,13 @@ class Order
 
     /**
      * @param int $amountRefunded
+     *
      * @return Order
      */
-    public function setAmountRefunded(int $amountRefunded): Order
+    public function setAmountRefunded(int $amountRefunded): self
     {
         $this->amountRefunded = $amountRefunded;
+
         return $this;
     }
 
@@ -288,11 +318,13 @@ class Order
 
     /**
      * @param string $status
+     *
      * @return Order
      */
-    public function setStatus(string $status): Order
+    public function setStatus(string $status): self
     {
         $this->status = $status;
+
         return $this;
     }
 
@@ -306,11 +338,13 @@ class Order
 
     /**
      * @param string $financialStatus
+     *
      * @return Order
      */
-    public function setFinancialStatus(string $financialStatus): Order
+    public function setFinancialStatus(string $financialStatus): self
     {
         $this->financialStatus = $financialStatus;
+
         return $this;
     }
 
@@ -324,11 +358,13 @@ class Order
 
     /**
      * @param string $reason
+     *
      * @return Order
      */
-    public function setReason(string $reason): Order
+    public function setReason(string $reason): self
     {
         $this->reason = $reason;
+
         return $this;
     }
 
@@ -342,11 +378,13 @@ class Order
 
     /**
      * @param string $reasonCode
+     *
      * @return Order
      */
-    public function setReasonCode(string $reasonCode): Order
+    public function setReasonCode(string $reasonCode): self
     {
         $this->reasonCode = $reasonCode;
+
         return $this;
     }
 
@@ -360,11 +398,13 @@ class Order
 
     /**
      * @param string $fastCheckout
+     *
      * @return Order
      */
-    public function setFastCheckout(string $fastCheckout): Order
+    public function setFastCheckout(string $fastCheckout): self
     {
         $this->fastCheckout = $fastCheckout;
+
         return $this;
     }
 
@@ -378,11 +418,13 @@ class Order
 
     /**
      * @param \DateTime|null $modified
+     *
      * @return Order
      */
-    public function setModified(?\DateTime $modified): Order
+    public function setModified(?\DateTime $modified): self
     {
         $this->modified = $modified;
+
         return $this;
     }
 
@@ -396,11 +438,13 @@ class Order
 
     /**
      * @param Customer $customer
+     *
      * @return Order
      */
-    public function setCustomer(Customer $customer): Order
+    public function setCustomer(Customer $customer): self
     {
         $this->customer = $customer;
+
         return $this;
     }
 
@@ -414,11 +458,13 @@ class Order
 
     /**
      * @param array $customInfo
+     *
      * @return Order
      */
-    public function setCustomInfo(array $customInfo): Order
+    public function setCustomInfo(array $customInfo): self
     {
         $this->customInfo = $customInfo;
+
         return $this;
     }
 
@@ -432,11 +478,13 @@ class Order
 
     /**
      * @param PaymentDetails $paymentDetails
+     *
      * @return Order
      */
-    public function setPaymentDetails(PaymentDetails $paymentDetails): Order
+    public function setPaymentDetails(PaymentDetails $paymentDetails): self
     {
         $this->paymentDetails = $paymentDetails;
+
         return $this;
     }
 
@@ -450,11 +498,13 @@ class Order
 
     /**
      * @param Cost[] $costs
+     *
      * @return Order
      */
-    public function setCosts(array $costs): Order
+    public function setCosts(array $costs): self
     {
         $this->costs = $costs;
+
         return $this;
     }
 
@@ -468,11 +518,13 @@ class Order
 
     /**
      * @param array $relatedTransactions
+     *
      * @return Order
      */
-    public function setRelatedTransactions(array $relatedTransactions): Order
+    public function setRelatedTransactions(array $relatedTransactions): self
     {
         $this->relatedTransactions = $relatedTransactions;
+
         return $this;
     }
 
@@ -486,11 +538,13 @@ class Order
 
     /**
      * @param PaymentMethod $paymentMethods
+     *
      * @return Order
      */
-    public function setPaymentMethods(PaymentMethod $paymentMethods): Order
+    public function setPaymentMethods(PaymentMethod $paymentMethods): self
     {
         $this->paymentMethods = $paymentMethods;
+
         return $this;
     }
 }

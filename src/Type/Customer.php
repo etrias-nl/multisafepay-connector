@@ -1,8 +1,16 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Etrias\MultiSafePayConnector\Type;
-
 
 class Customer
 {
@@ -55,11 +63,13 @@ class Customer
 
     /**
      * @param string|null $locale
+     *
      * @return Customer
      */
-    public function setLocale(?string $locale): Customer
+    public function setLocale(?string $locale): self
     {
         $this->locale = $locale;
+
         return $this;
     }
 
@@ -73,11 +83,13 @@ class Customer
 
     /**
      * @param string|null $ipAddress
+     *
      * @return Customer
      */
-    public function setIpAddress(?string $ipAddress): Customer
+    public function setIpAddress(?string $ipAddress): self
     {
         $this->ipAddress = $ipAddress;
+
         return $this;
     }
 
@@ -91,11 +103,13 @@ class Customer
 
     /**
      * @param string|null $firstName
+     *
      * @return Customer
      */
-    public function setFirstName(?string $firstName): Customer
+    public function setFirstName(?string $firstName): self
     {
         $this->firstName = $firstName;
+
         return $this;
     }
 
@@ -109,11 +123,13 @@ class Customer
 
     /**
      * @param string|null $lastName
+     *
      * @return Customer
      */
-    public function setLastName(?string $lastName): Customer
+    public function setLastName(?string $lastName): self
     {
         $this->lastName = $lastName;
+
         return $this;
     }
 
@@ -127,11 +143,13 @@ class Customer
 
     /**
      * @param string|null $address1
+     *
      * @return Customer
      */
-    public function setAddress1(?string $address1): Customer
+    public function setAddress1(?string $address1): self
     {
         $this->address1 = $address1;
+
         return $this;
     }
 
@@ -145,11 +163,13 @@ class Customer
 
     /**
      * @param string|null $houseNumber
+     *
      * @return Customer
      */
-    public function setHouseNumber(?string $houseNumber): Customer
+    public function setHouseNumber(?string $houseNumber): self
     {
         $this->houseNumber = $houseNumber;
+
         return $this;
     }
 
@@ -163,11 +183,13 @@ class Customer
 
     /**
      * @param string|null $zipCode
+     *
      * @return Customer
      */
-    public function setZipCode(?string $zipCode): Customer
+    public function setZipCode(?string $zipCode): self
     {
         $this->zipCode = $zipCode;
+
         return $this;
     }
 
@@ -181,11 +203,13 @@ class Customer
 
     /**
      * @param string|null $city
+     *
      * @return Customer
      */
-    public function setCity(?string $city): Customer
+    public function setCity(?string $city): self
     {
         $this->city = $city;
+
         return $this;
     }
 
@@ -199,11 +223,13 @@ class Customer
 
     /**
      * @param string|null $country
+     *
      * @return Customer
      */
-    public function setCountry(?string $country): Customer
+    public function setCountry(?string $country): self
     {
         $this->country = $country;
+
         return $this;
     }
 
@@ -217,11 +243,13 @@ class Customer
 
     /**
      * @param string|null $phone
+     *
      * @return Customer
      */
-    public function setPhone(?string $phone): Customer
+    public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
+
         return $this;
     }
 
@@ -235,11 +263,13 @@ class Customer
 
     /**
      * @param string|null $email
+     *
      * @return Customer
      */
-    public function setEmail(?string $email): Customer
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
+
         return $this;
     }
 
@@ -253,11 +283,13 @@ class Customer
 
     /**
      * @param string|null $referrer
+     *
      * @return Customer
      */
-    public function setReferrer(?string $referrer): Customer
+    public function setReferrer(?string $referrer): self
     {
         $this->referrer = $referrer;
+
         return $this;
     }
 
@@ -271,11 +303,13 @@ class Customer
 
     /**
      * @param string|null $userAgent
+     *
      * @return Customer
      */
-    public function setUserAgent(?string $userAgent): Customer
+    public function setUserAgent(?string $userAgent): self
     {
         $this->userAgent = $userAgent;
+
         return $this;
     }
 }

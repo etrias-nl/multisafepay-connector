@@ -2,10 +2,17 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Tests\Etrias\MultiSafePayConnector\Functional\Api;
-
-
 
 use Etrias\MultiSafePayConnector\Api\Orders;
 use Etrias\MultiSafePayConnector\Response\CreateDirectOrderResponse;
@@ -14,13 +21,15 @@ use Etrias\MultiSafePayConnector\Response\CreateRedirectOrderResponse;
 use Etrias\MultiSafePayConnector\Response\GetOrderResponse;
 use Etrias\MultiSafePayConnector\Type\CheckoutOptions;
 use Etrias\MultiSafePayConnector\Type\Customer;
-use Etrias\MultiSafePayConnector\Type\GatewayInfo;
 use Etrias\MultiSafePayConnector\Type\PaymentOptions;
 use Etrias\MultiSafePayConnector\Type\ShoppingCart;
 use Etrias\MultiSafePayConnector\Type\ShoppingCartItem;
 use Etrias\MultiSafePayConnector\Type\TaxDefaultRule;
 use Etrias\MultiSafePayConnector\Type\TaxTables;
 
+/**
+ * @coversNothing
+ */
 class OrdersTest extends AbstractApiTest
 {
     /** @var Orders */
@@ -32,10 +41,9 @@ class OrdersTest extends AbstractApiTest
         $this->ordersApi = new Orders($this->client, $this->serializer);
     }
 
-
     public function testCreateRedirectOrder()
     {
-        $orderId = 'TEST-ORDER-'.rand(0,9999);
+        $orderId = 'TEST-ORDER-'.rand(0, 9999);
 
         $paymentOptions = new PaymentOptions(
             'https://notify.me',
@@ -57,7 +65,7 @@ class OrdersTest extends AbstractApiTest
 
     public function testCreatePaymentLink()
     {
-        $orderId = 'TEST-ORDER-'.rand(0,9999);
+        $orderId = 'TEST-ORDER-'.rand(0, 9999);
 
         $paymentOptions = new PaymentOptions(
             'https://notify.me',
@@ -72,6 +80,7 @@ class OrdersTest extends AbstractApiTest
             'EUR',
             7895,
             $paymentOptions,
+            null,
             ['issuer_id' => '0021']
         );
 
@@ -80,7 +89,7 @@ class OrdersTest extends AbstractApiTest
 
     public function testKlarnaOrder()
     {
-        $orderId = 'TEST-ORDER-'.rand(0,9999);
+        $orderId = 'TEST-ORDER-'.rand(0, 9999);
 
         $paymentOptions = new PaymentOptions(
             'https://notify.me',
@@ -94,7 +103,7 @@ class OrdersTest extends AbstractApiTest
         $customer->setHouseNumber('housenumber');
         $customer->setZipCode('zipcode');
         $customer->setCity('city');
-        $customer->setCountry( 'NL');
+        $customer->setCountry('NL');
 
         $gatewayInfo = [
             'gender' => 'M',
@@ -108,7 +117,7 @@ class OrdersTest extends AbstractApiTest
 
         $taxTables = new TaxTables(new TaxDefaultRule(0.21, true));
 
-        $checkoutOptions  = new CheckoutOptions();
+        $checkoutOptions = new CheckoutOptions();
         $checkoutOptions->setTaxTables($taxTables);
 
         $this->expectExceptionCode(1000);

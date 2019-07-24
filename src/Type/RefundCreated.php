@@ -1,8 +1,16 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Etrias\MultiSafePayConnector\Type;
-
 
 class RefundCreated
 {
@@ -22,11 +30,13 @@ class RefundCreated
 
     /**
      * @param string $transactionId
+     *
      * @return RefundCreated
      */
-    public function setTransactionId(string $transactionId): RefundCreated
+    public function setTransactionId(string $transactionId): self
     {
         $this->transactionId = $transactionId;
+
         return $this;
     }
 
@@ -40,13 +50,13 @@ class RefundCreated
 
     /**
      * @param string $refundId
+     *
      * @return RefundCreated
      */
-    public function setRefundId(string $refundId): RefundCreated
+    public function setRefundId(string $refundId): self
     {
         $this->refundId = $refundId;
+
         return $this;
     }
-
-
 }

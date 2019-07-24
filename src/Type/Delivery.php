@@ -1,8 +1,16 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Etrias\MultiSafePayConnector\Type;
-
 
 class Delivery
 {
@@ -49,11 +57,13 @@ class Delivery
 
     /**
      * @param string|null $firstName
+     *
      * @return Delivery
      */
-    public function setFirstName(?string $firstName): Delivery
+    public function setFirstName(?string $firstName): self
     {
         $this->firstName = $firstName;
+
         return $this;
     }
 
@@ -67,11 +77,13 @@ class Delivery
 
     /**
      * @param string|null $lastName
+     *
      * @return Delivery
      */
-    public function setLastName(?string $lastName): Delivery
+    public function setLastName(?string $lastName): self
     {
         $this->lastName = $lastName;
+
         return $this;
     }
 
@@ -85,11 +97,13 @@ class Delivery
 
     /**
      * @param string|null $address1
+     *
      * @return Delivery
      */
-    public function setAddress1(?string $address1): Delivery
+    public function setAddress1(?string $address1): self
     {
         $this->address1 = $address1;
+
         return $this;
     }
 
@@ -103,11 +117,13 @@ class Delivery
 
     /**
      * @param string|null $address2
+     *
      * @return Delivery
      */
-    public function setAddress2(?string $address2): Delivery
+    public function setAddress2(?string $address2): self
     {
         $this->address2 = $address2;
+
         return $this;
     }
 
@@ -121,11 +137,13 @@ class Delivery
 
     /**
      * @param string|null $houseNumber
+     *
      * @return Delivery
      */
-    public function setHouseNumber(?string $houseNumber): Delivery
+    public function setHouseNumber(?string $houseNumber): self
     {
         $this->houseNumber = $houseNumber;
+
         return $this;
     }
 
@@ -139,11 +157,13 @@ class Delivery
 
     /**
      * @param string|null $zipCode
+     *
      * @return Delivery
      */
-    public function setZipCode(?string $zipCode): Delivery
+    public function setZipCode(?string $zipCode): self
     {
         $this->zipCode = $zipCode;
+
         return $this;
     }
 
@@ -157,11 +177,13 @@ class Delivery
 
     /**
      * @param string|null $city
+     *
      * @return Delivery
      */
-    public function setCity(?string $city): Delivery
+    public function setCity(?string $city): self
     {
         $this->city = $city;
+
         return $this;
     }
 
@@ -175,11 +197,13 @@ class Delivery
 
     /**
      * @param string|null $state
+     *
      * @return Delivery
      */
-    public function setState(?string $state): Delivery
+    public function setState(?string $state): self
     {
         $this->state = $state;
+
         return $this;
     }
 
@@ -193,11 +217,13 @@ class Delivery
 
     /**
      * @param string|null $country
+     *
      * @return Delivery
      */
-    public function setCountry(?string $country): Delivery
+    public function setCountry(?string $country): self
     {
         $this->country = $country;
+
         return $this;
     }
 
@@ -211,11 +237,13 @@ class Delivery
 
     /**
      * @param string|null $phone
+     *
      * @return Delivery
      */
-    public function setPhone(?string $phone): Delivery
+    public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
+
         return $this;
     }
 
@@ -229,11 +257,13 @@ class Delivery
 
     /**
      * @param string|null $email
+     *
      * @return Delivery
      */
-    public function setEmail(?string $email): Delivery
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
+
         return $this;
     }
 }
