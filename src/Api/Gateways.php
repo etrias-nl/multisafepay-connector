@@ -25,6 +25,11 @@ class Gateways
      */
     protected $client;
 
+    /**
+     * Gateways constructor.
+     * @param ClientInterface $client
+     * @param SerializerInterface $serializer
+     */
     public function __construct(ClientInterface $client, SerializerInterface $serializer)
     {
 
@@ -37,7 +42,7 @@ class Gateways
      * @param string|null $currency ISO-4217
      * @param int|null $amount in cents
      * @param string|null $include
-     * @return mixed
+     * @return AllGatewaysResponse
      * @throws \Http\Client\Exception
      */
     public function getAll(string $country = null, string $currency = null, int $amount = null, string $include = null)
@@ -69,6 +74,11 @@ class Gateways
         return $this->deserializeResponse($response, GetGatewayResponse::class);
     }
 
+    /**
+     * @param string $id
+     * @return GetIssuersResponse
+     * @throws \Http\Client\Exception
+     */
     public function getIssuers(string $id = 'ideal')
     {
         $response = $this->client->get(sprintf('/issuers/%s', $id));
