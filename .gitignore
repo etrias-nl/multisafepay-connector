@@ -3,7 +3,7 @@
 /.idea
 /.php_cs.cache
 /.phpunit.result.cache
-/.phpunit.xml
+/phpunit.xml
 /.phpstorm.meta.php
 /coverage/
 vendor/
