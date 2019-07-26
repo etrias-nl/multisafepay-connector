@@ -135,7 +135,7 @@ class Orders
      *
      * @throws \Http\Client\Exception
      *
-     * @return mixed
+     * @return CreateDirectOrderResponse
      */
     public function createDirectOrder(
         string $gateway,
@@ -164,8 +164,6 @@ class Orders
             'shopping_cart' => $shoppingCart,
             'checkout_options' => $checkoutOptions,
         ];
-
-        echo $this->serializer->serialize($body, 'json');
         $response = $this->client->post('/orders', [], $this->serializer->serialize($body, 'json'));
 
         return $this->deserializeResponse($response, CreateDirectOrderResponse::class);

@@ -1,0 +1,4 @@
+Etrias\MultiSafePayConnector\Response\CreateDirectOrderResponse:
+  properties:
+    data:
+      type: Etrias\MultiSafePayConnector\Type\DirectOrderCreated

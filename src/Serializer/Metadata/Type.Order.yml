@@ -35,7 +35,7 @@ Etrias\MultiSafePayConnector\Type\Order:
     customer:
       type: Etrias\MultiSafePayConnector\Type\Customer
     customInfo:
-      type: array<string>
+      type: array<string, string>
     paymentDetails:
       type: Etrias\MultiSafePayConnector\Type\PaymentDetails
     costs:

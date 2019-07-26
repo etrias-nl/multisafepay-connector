@@ -1,0 +1,8 @@
+Etrias\MultiSafePayConnector\Type\DirectOrderCreated:
+  properties:
+    paymentUrl:
+      type: string
+    cancelUrl:
+      type: string
+    gatewayInfo:
+      type: array<string, string>

@@ -12,33 +12,16 @@
 
 namespace Etrias\MultiSafePayConnector\Type;
 
-class DirectOrderCreated
+class DirectOrderCreated extends Order
 {
-    /** @var string */
-    protected $orderId;
-
     /** @var string */
     protected $paymentUrl;
 
-    /**
-     * @return string
-     */
-    public function getOrderId(): string
-    {
-        return $this->orderId;
-    }
+    /** @var string */
+    protected $cancelUrl;
 
-    /**
-     * @param string $orderId
-     *
-     * @return RedirectOrderCreated
-     */
-    public function setOrderId(string $orderId): RedirectOrderCreated
-    {
-        $this->orderId = $orderId;
-
-        return $this;
-    }
+    /** @var string[] */
+    protected $gatewayInfo;
 
     /**
      * @return string
@@ -59,4 +42,42 @@ class DirectOrderCreated
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getCancelUrl(): string
+    {
+        return $this->cancelUrl;
+    }
+
+    /**
+     * @param string $cancelUrl
+     * @return DirectOrderCreated
+     */
+    public function setCancelUrl(string $cancelUrl): DirectOrderCreated
+    {
+        $this->cancelUrl = $cancelUrl;
+        return $this;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getGatewayInfo(): array
+    {
+        return $this->gatewayInfo;
+    }
+
+    /**
+     * @param string[] $gatewayInfo
+     * @return DirectOrderCreated
+     */
+    public function setGatewayInfo(array $gatewayInfo): DirectOrderCreated
+    {
+        $this->gatewayInfo = $gatewayInfo;
+        return $this;
+    }
+
+
 }
