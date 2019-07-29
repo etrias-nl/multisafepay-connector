@@ -80,12 +80,13 @@ class Order
     /** @var array */
     protected $relatedTransactions;
 
-    /** @var PaymentMethod */
+    /** @var PaymentMethod[] */
     protected $paymentMethods;
 
     public function __construct()
     {
         $this->items = [];
+        $this->paymentMethods = [];
     }
 
     /**
@@ -529,9 +530,9 @@ class Order
     }
 
     /**
-     * @return PaymentMethod
+     * @return PaymentMethod[]
      */
-    public function getPaymentMethods(): PaymentMethod
+    public function getPaymentMethods(): array
     {
         return $this->paymentMethods;
     }
