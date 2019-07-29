@@ -85,7 +85,7 @@ class Orders
      *
      * @throws \Http\Client\Exception
      *
-     * @return mixed
+     * @return CreateRedirectOrderResponse
      */
     public function createRedirectOrder(
         string $orderId,
@@ -184,7 +184,7 @@ class Orders
      *
      * @throws \Http\Client\Exception
      *
-     * @return mixed
+     * @return CreatePaymentLinkOrderResponse
      */
     public function createPaymentLinkOrder(
         string $gateway,
