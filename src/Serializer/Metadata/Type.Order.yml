@@ -19,7 +19,7 @@ Etrias\MultiSafePayConnector\Type\Order:
     var3:
       type: string
     items:
-      type: Array<ShoppingCartItem>
+      type: string
     amountRefunded:
       type: int
     status:
