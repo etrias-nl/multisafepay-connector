@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Etrias\MultiSafePayConnector\Api;
 
-use Etrias\MultiSafePayConnector\Response\CreateRedirectOrderResponse;
+use Etrias\MultiSafePayConnector\Response\CreateRefundResponse;
 use Etrias\MultiSafePayConnector\Serializer\ApiTrait;
 use Http\Client\Common\HttpMethodsClientInterface;
 use JMS\Serializer\SerializerInterface;
@@ -49,7 +49,7 @@ class Transactions
      *
      * @throws \Http\Client\Exception
      *
-     * @return CreateRedirectOrderResponse
+     * @return CreateRefundResponse
      */
     public function refund(string $orderId, string $currency, int $amount, $description = '')
     {
@@ -65,6 +65,6 @@ class Transactions
             $this->serializer->serialize($body, 'json')
         );
 
-        return $this->deserializeResponse($response, CreateRedirectOrderResponse::class);
+        return $this->deserializeResponse($response, CreateRefundResponse::class);
     }
 }
