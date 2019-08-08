@@ -14,7 +14,7 @@ namespace Etrias\MultiSafePayConnector\Type;
 
 class Order
 {
-    /** @var string */
+    /** @var string|null */
     protected $transactionId;
 
     /** @var string */
@@ -90,22 +90,21 @@ class Order
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTransactionId(): string
+    public function getTransactionId(): ?string
     {
         return $this->transactionId;
     }
 
     /**
-     * @param string $transactionId
-     *
+     * @param string|null $transactionId
      * @return Order
      */
-    public function setTransactionId(string $transactionId): self
+    public function setTransactionId(?string $transactionId): Order
     {
         $this->transactionId = $transactionId;
-
+        
         return $this;
     }
 
