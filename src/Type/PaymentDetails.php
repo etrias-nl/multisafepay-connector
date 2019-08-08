@@ -26,7 +26,7 @@ class PaymentDetails
     /** @var string */
     protected $accountHolderName;
 
-    /** @var int */
+    /** @var int|null */
     protected $externalTransactionId;
 
     /** @var string */
@@ -119,19 +119,18 @@ class PaymentDetails
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getExternalTransactionId(): int
+    public function getExternalTransactionId(): ?int
     {
         return $this->externalTransactionId;
     }
 
     /**
-     * @param int $externalTransactionId
-     *
+     * @param int|null $externalTransactionId
      * @return PaymentDetails
      */
-    public function setExternalTransactionId(int $externalTransactionId): self
+    public function setExternalTransactionId(?int $externalTransactionId): PaymentDetails
     {
         $this->externalTransactionId = $externalTransactionId;
 
