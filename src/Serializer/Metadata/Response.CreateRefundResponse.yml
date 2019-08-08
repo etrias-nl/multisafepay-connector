@@ -1,0 +1,4 @@
+Etrias\MultiSafePayConnector\Response\CreateRefundResponse:
+  properties:
+    data:
+      type: Etrias\MultiSafePayConnector\Type\RefundCreated

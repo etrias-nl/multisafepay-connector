@@ -1,0 +1,6 @@
+Etrias\MultiSafePayConnector\Type\RefundCreated:
+  properties:
+    transactionId:
+      type: string
+    refundId:
+      type: string
