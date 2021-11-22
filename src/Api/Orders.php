@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Etrias\MultiSafePayConnector\Api;
 
+use Etrias\MultiSafePayConnector\Response\CancelOrderResponse;
 use Etrias\MultiSafePayConnector\Response\CreateDirectOrderResponse;
 use Etrias\MultiSafePayConnector\Response\CreatePaymentLinkOrderResponse;
 use Etrias\MultiSafePayConnector\Response\CreateRedirectOrderResponse;
@@ -217,5 +218,22 @@ class Orders
         $response = $this->client->post('/orders', [], $this->serializer->serialize($body, 'json'));
 
         return $this->deserializeResponse($response, CreatePaymentLinkOrderResponse::class);
+    }
+
+    /**
+     * @param string $orderId
+     * @return CancelOrderResponse
+     */
+    public function cancelOrder(string $orderId)
+    {
+        $uri = sprintf('/orders/%s', $orderId);
+
+        $body = [
+            'status' => 'cancelled',
+        ];
+
+        $response = $this->client->patch($uri, [], $this->serializer->serialize($body, 'json'));
+
+        return $this->deserializeResponse($response, CancelOrderResponse::class);
     }
 }
