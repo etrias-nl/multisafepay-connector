@@ -51,7 +51,7 @@ class Transactions
      *
      * @return CreateRefundResponse
      */
-    public function refund(string $orderId, string $currency, int $amount, $description = '')
+    public function refund(string $orderId, string $currency, int $amount, $description = '', array $headers = [])
     {
         $body = [
             'currency' => $currency,
@@ -61,7 +61,7 @@ class Transactions
 
         $response = $this->client->post(
             sprintf('/orders/%s/refunds', $orderId),
-            [],
+            $headers,
             $this->serializer->serialize($body, 'json')
         );
 

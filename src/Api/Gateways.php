@@ -55,7 +55,7 @@ class Gateways
      *
      * @return AllGatewaysResponse
      */
-    public function getAll(string $country = null, string $currency = null, int $amount = null, string $include = null)
+    public function getAll(string $country = null, string $currency = null, int $amount = null, string $include = null, array $headers = [])
     {
         $uri = new Uri('/gateways');
 
@@ -66,7 +66,7 @@ class Gateways
             'include' => $include,
         ]));
 
-        $response = $this->client->get($uri);
+        $response = $this->client->get($uri, $headers);
 
         return $this->deserializeResponse($response, AllGatewaysResponse::class);
     }
@@ -78,9 +78,9 @@ class Gateways
      *
      * @return GetGatewayResponse
      */
-    public function get(string $id)
+    public function get(string $id, array $headers = [])
     {
-        $response = $this->client->get(sprintf('/gateways/%s', $id));
+        $response = $this->client->get(sprintf('/gateways/%s', $id), $headers);
 
         return $this->deserializeResponse($response, GetGatewayResponse::class);
     }
@@ -92,9 +92,9 @@ class Gateways
      *
      * @return GetIssuersResponse
      */
-    public function getIssuers(string $id = 'ideal')
+    public function getIssuers(string $id = 'ideal', array $headers = [])
     {
-        $response = $this->client->get(sprintf('/issuers/%s', $id));
+        $response = $this->client->get(sprintf('/issuers/%s', $id), $headers);
 
         return $this->deserializeResponse($response, GetIssuersResponse::class);
     }

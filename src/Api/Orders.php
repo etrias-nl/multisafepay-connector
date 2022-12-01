@@ -63,11 +63,11 @@ class Orders
      *
      * @return GetOrderResponse
      */
-    public function getOrder(string $orderId)
+    public function getOrder(string $orderId, array $headers = [])
     {
         $uri = sprintf('/orders/%s', $orderId);
 
-        $response = $this->client->get($uri);
+        $response = $this->client->get($uri, $headers);
 
         return $this->deserializeResponse($response, GetOrderResponse::class);
     }
@@ -99,7 +99,8 @@ class Orders
         SecondChance $secondChance = null,
         Delivery $delivery = null,
         ShoppingCart $shoppingCart = null,
-        CheckoutOptions $checkoutOptions = null
+        CheckoutOptions $checkoutOptions = null,
+        array $headers = []
     ) {
         $body = [
             'type' => self::TYPE_REDIRECT,
@@ -116,7 +117,7 @@ class Orders
             'checkout_options' => $checkoutOptions,
         ];
 
-        $response = $this->client->post('/orders', [], $this->serializer->serialize($body, 'json'));
+        $response = $this->client->post('/orders', $headers, $this->serializer->serialize($body, 'json'));
 
         return $this->deserializeResponse($response, CreateRedirectOrderResponse::class);
     }
@@ -149,7 +150,8 @@ class Orders
         $gatewayInfo = [],
         Delivery $delivery = null,
         ShoppingCart $shoppingCart = null,
-        CheckoutOptions $checkoutOptions = null
+        CheckoutOptions $checkoutOptions = null,
+        array $headers = []
     ) {
         $body = [
             'type' => self::TYPE_DIRECT,
@@ -165,7 +167,7 @@ class Orders
             'shopping_cart' => $shoppingCart,
             'checkout_options' => $checkoutOptions,
         ];
-        $response = $this->client->post('/orders', [], $this->serializer->serialize($body, 'json'));
+        $response = $this->client->post('/orders', $headers, $this->serializer->serialize($body, 'json'));
 
         return $this->deserializeResponse($response, CreateDirectOrderResponse::class);
     }
@@ -198,7 +200,8 @@ class Orders
         array $gatewayInfo = [],
         Delivery $delivery = null,
         ShoppingCart $shoppingCart = null,
-        CheckoutOptions $checkoutOptions = null
+        CheckoutOptions $checkoutOptions = null,
+        array $headers = []
     ) {
         $body = [
             'type' => self::TYPE_PAYMENT_LINK,
@@ -215,7 +218,7 @@ class Orders
             'checkout_options' => $checkoutOptions,
         ];
 
-        $response = $this->client->post('/orders', [], $this->serializer->serialize($body, 'json'));
+        $response = $this->client->post('/orders', $headers, $this->serializer->serialize($body, 'json'));
 
         return $this->deserializeResponse($response, CreatePaymentLinkOrderResponse::class);
     }
@@ -224,7 +227,7 @@ class Orders
      * @param string $orderId
      * @return CancelOrderResponse
      */
-    public function cancelOrder(string $orderId)
+    public function cancelOrder(string $orderId, array $headers = [])
     {
         $uri = sprintf('/orders/%s', $orderId);
 
@@ -232,7 +235,7 @@ class Orders
             'status' => 'cancelled',
         ];
 
-        $response = $this->client->patch($uri, [], $this->serializer->serialize($body, 'json'));
+        $response = $this->client->patch($uri, $headers, $this->serializer->serialize($body, 'json'));
 
         return $this->deserializeResponse($response, CancelOrderResponse::class);
     }
