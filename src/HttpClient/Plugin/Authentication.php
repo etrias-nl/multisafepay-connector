@@ -43,7 +43,7 @@ class Authentication implements Plugin
     public function handleRequest(RequestInterface $request, callable $next, callable $first): Promise
     {
         if(!$request->hasHeader('api_Key')){
-            $request = $request->withHeader('api_key', $key);
+            $request = $request->withHeader('api_key', $this->apiKey);
         }
 
         return $next($request);
