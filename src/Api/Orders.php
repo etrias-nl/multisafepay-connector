@@ -100,7 +100,8 @@ class Orders
         Delivery $delivery = null,
         ShoppingCart $shoppingCart = null,
         CheckoutOptions $checkoutOptions = null,
-        array $headers = []
+        array $headers = [],
+        array $additionalParams = []
     ) {
         $body = [
             'type' => self::TYPE_REDIRECT,
@@ -116,6 +117,10 @@ class Orders
             'shopping_cart' => $shoppingCart,
             'checkout_options' => $checkoutOptions,
         ];
+
+        if ($additionalParams) {
+            $body = array_merge($body, $additionalParams);
+        }
 
         $response = $this->client->post('/orders', $headers, $this->serializer->serialize($body, 'json'));
 
@@ -151,7 +156,8 @@ class Orders
         Delivery $delivery = null,
         ShoppingCart $shoppingCart = null,
         CheckoutOptions $checkoutOptions = null,
-        array $headers = []
+        array $headers = [],
+        array $additionalParams = []
     ) {
         $body = [
             'type' => self::TYPE_DIRECT,
@@ -167,6 +173,11 @@ class Orders
             'shopping_cart' => $shoppingCart,
             'checkout_options' => $checkoutOptions,
         ];
+
+        if ($additionalParams) {
+            $body = array_merge($body, $additionalParams);
+        }
+
         $response = $this->client->post('/orders', $headers, $this->serializer->serialize($body, 'json'));
 
         return $this->deserializeResponse($response, CreateDirectOrderResponse::class);
@@ -201,7 +212,8 @@ class Orders
         Delivery $delivery = null,
         ShoppingCart $shoppingCart = null,
         CheckoutOptions $checkoutOptions = null,
-        array $headers = []
+        array $headers = [],
+        array $additionalParams = []
     ) {
         $body = [
             'type' => self::TYPE_PAYMENT_LINK,
@@ -217,6 +229,10 @@ class Orders
             'shopping_cart' => $shoppingCart,
             'checkout_options' => $checkoutOptions,
         ];
+
+        if ($additionalParams) {
+            $body = array_merge($body, $additionalParams);
+        }
 
         $response = $this->client->post('/orders', $headers, $this->serializer->serialize($body, 'json'));
 
