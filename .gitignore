@@ -1,9 +1,3 @@
-.DS_Store
-!.gitkeep
-/.idea
-/.php_cs.cache
-/.phpunit.result.cache
-/phpunit.xml
-/.phpstorm.meta.php
-/coverage/
-vendor/
+.idea
+/composer.lock
+/vendor
