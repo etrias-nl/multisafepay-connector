@@ -10,5 +10,5 @@ exec_app_docker=${exec_docker} ${DEV_IMAGE_TAG}
 
 composer-normalize:
 	${exec_app_docker} sh -c "composer update && composer bump && composer --working-dir=/usr/local/etc/tools normalize /app/composer.json"
-lint-php:
+lint:
 	${exec_app_docker} sh -c "phplint --no-progress --no-cache --warning src"
