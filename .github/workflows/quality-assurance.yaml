@@ -15,6 +15,6 @@ jobs:
             -
                 uses: ScribeMD/docker-cache@0.3.3
                 with:
-                    key: ${{ runner.os }}-docker-${{ hashFiles('Makefile') }}
+                    key: ${{ runner.os }}-docker-${{ hashFiles('Makefile', 'composer.json') }}
             -
                 run: make lint
