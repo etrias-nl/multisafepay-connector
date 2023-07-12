@@ -3,7 +3,7 @@
     "description": "Connector to MultiSafePay connector",
     "require": {
         "php": "^7.4 || ^8.1",
-        "jms/serializer": "^3.0",
+        "jms/serializer": "^3.0.1",
         "php-http/client-common": "^2.0",
         "php-http/discovery": "^1.0"
     },
