@@ -77,8 +77,7 @@ class Order
     /** @var Cost[] */
     protected $costs;
 
-    /** @var array */
-    protected $relatedTransactions = [];
+    protected ?array $relatedTransactions = null;
 
     /** @var PaymentMethod[] */
     protected $paymentMethods;
@@ -508,20 +507,12 @@ class Order
         return $this;
     }
 
-    /**
-     * @return array
-     */
-    public function getRelatedTransactions(): array
+    public function getRelatedTransactions(): ?array
     {
         return $this->relatedTransactions;
     }
 
-    /**
-     * @param array $relatedTransactions
-     *
-     * @return Order
-     */
-    public function setRelatedTransactions(array $relatedTransactions): self
+    public function setRelatedTransactions(?array $relatedTransactions): Order
     {
         $this->relatedTransactions = $relatedTransactions;
 
