@@ -78,7 +78,7 @@ class Order
     protected $costs;
 
     /** @var array */
-    protected $relatedTransactions;
+    protected $relatedTransactions = [];
 
     /** @var PaymentMethod[] */
     protected $paymentMethods;
